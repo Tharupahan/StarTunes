@@ -1,5 +1,3 @@
-#!/home/tharupahan/dev/py_projects/environments/env_StarTunes/bin/python3
-
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'starTunesGui.ui'
@@ -10,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+                                                                                                         
 from functions import Functions
 
 

@@ -1,5 +1,3 @@
-#!/home/tharupahan/dev/py_projects/environments/env_StarTunes/bin/python3
-
 from PyQt5.QtWidgets import QFileDialog
 from miniaudio import stream_file, PlaybackDevice
 
