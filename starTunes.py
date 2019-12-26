@@ -12,7 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from functions import Functions
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow(Functions, object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(402, 249)
@@ -38,6 +39,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.playButton.clicked.connect(self.play)
+        self.stopButton.clicked.connect(self.stop)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
