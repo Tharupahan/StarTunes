@@ -1,14 +1,15 @@
-#!/usr/bin/env python3
+#!/home/tharupahan/dev/py_projects/environments/env_StarTunes/bin/python3
 
 from PyQt5.QtWidgets import QFileDialog
-from playsound import playsound
+from vlc import MediaPlayer
 
 class Functions:
-    
+
     def play(self):
         track_info = QFileDialog.getOpenFileName()
         track = track_info[0]
-        playsound(track)
+        player = MediaPlayer(track)
+        player.play()
 
     def stop(self):
-        playsound(None)
+        pass
