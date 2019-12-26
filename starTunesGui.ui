@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../disc.png</normaloff>../disc.png</iconset>
+    <normaloff>disc.png</normaloff>disc.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="playButton">
