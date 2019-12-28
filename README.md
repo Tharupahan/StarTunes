@@ -1,4 +1,4 @@
 # StarMusic
 Music player 
 
-2019/12/27 : version 1.1 implemented
+Note: _starTunes.py depends on functions.py so they should be in same directory_
