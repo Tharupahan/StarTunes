@@ -34,6 +34,11 @@ class Functions:
         #inititalize mixer
         mixer.init()
 
+        #set default volume
+        DEFAULT_VOLUME = 35
+        self.volumeBox.setValue(DEFAULT_VOLUME)
+        call( ["amixer", "-D", "pulse", "sset", "Master", f"{DEFAULT_VOLUME}%"] )
+
         #load and play track
         load(track)
         play()
