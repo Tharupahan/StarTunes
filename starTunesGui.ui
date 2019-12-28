@@ -70,14 +70,20 @@
      <string>Resume</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="volume_box">
+   <widget class="QSpinBox" name="volumeBox">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>70</x>
       <y>120</y>
       <width>52</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -93,20 +99,29 @@
      <string>Volume</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="repeat_box">
+   <widget class="QCheckBox" name="repeatBox">
     <property name="geometry">
      <rect>
       <x>230</x>
       <y>121</y>
-      <width>20</width>
+      <width>21</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label2">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -119,20 +134,20 @@
      <string>Repeat</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label3">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>320</x>
       <y>120</y>
-      <width>58</width>
+      <width>30</width>
       <height>18</height>
      </rect>
     </property>
     <property name="text">
-     <string>FadeOut</string>
+     <string>Fade</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="fadeout_box">
+   <widget class="QCheckBox" name="fadeBox">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -162,12 +177,12 @@
    <zorder>pauseButton</zorder>
    <zorder>stopButton</zorder>
    <zorder>timeSlider</zorder>
-   <zorder>volume_box</zorder>
+   <zorder>volumeBox</zorder>
    <zorder>label</zorder>
-   <zorder>repeat_box</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>fadeout_box</zorder>
+   <zorder>repeatBox</zorder>
+   <zorder>label2</zorder>
+   <zorder>label3</zorder>
+   <zorder>fadeBox</zorder>
    <zorder>selectButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QFileDialog
 from pygame import mixer
 from pygame.mixer_music import *
-import time
+from subprocess import call
 
 class Functions:
 
@@ -12,9 +12,11 @@ class Functions:
         self.resumeButton.setEnabled(status)
         self.stopButton.setEnabled(status)
         self.label.setEnabled(status)
-        self.label_2.setEnabled(status)
-        self.label_3.setEnabled(status)
-        self.volume_box.setEnabled(status)
+        self.label2.setEnabled(status)
+        self.label3.setEnabled(status)
+        self.volumeBox.setEnabled(status)
+        self.repeatBox.setEnabled(status)
+        self.fadeBox.setEnabled(status)
         self.timeSlider.setEnabled(status)
 
 
@@ -74,5 +76,13 @@ class Functions:
         #disable elements
         self.toggle_elements(False)
 
+
+    def change_volume(self):
+        
+        #get volume level
+        volume = self.volumeBox.value() 
+
+        #set volume level
+        call( ["amixer", "-D", "pulse", "sset", "Master", f"{volume}%"] )
 
     
