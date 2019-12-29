@@ -8,69 +8,113 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 from functions import Functions
 
-class Ui_MainWindow(Functions, object):
+
+class Ui_MainWindow(Functions,object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(402, 249)
+        MainWindow.setWindowModality(QtCore.Qt.NonModal)
+        MainWindow.resize(403, 248)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("disc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../../../.designer/backup/disc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
+        MainWindow.setStyleSheet("QLabel, QPushButton, QCheckBox, QToolButton, QSpinBox{\n"
+"    color:  cyan;\n"
+"}\n"
+"\n"
+"QProgressBar{\n"
+"    border: cyan;\n"
+"    border-radius: 6px;\n"
+"    background-color: grey;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk{\n"
+"    background-color: cyan;\n"
+"    margin: 1.5px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pauseButton = QtWidgets.QPushButton(self.centralwidget)
         self.pauseButton.setGeometry(QtCore.QRect(100, 180, 88, 34))
+        self.pauseButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pauseButton.setObjectName("pauseButton")
         self.stopButton = QtWidgets.QPushButton(self.centralwidget)
         self.stopButton.setGeometry(QtCore.QRect(210, 180, 88, 34))
+        self.stopButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.stopButton.setObjectName("stopButton")
-        self.timeSlider = QtWidgets.QSlider(self.centralwidget)
-        self.timeSlider.setGeometry(QtCore.QRect(10, 60, 350, 20))
-        self.timeSlider.setOrientation(QtCore.Qt.Horizontal)
-        self.timeSlider.setObjectName("timeSlider")
         self.resumeButton = QtWidgets.QPushButton(self.centralwidget)
         self.resumeButton.setGeometry(QtCore.QRect(100, 180, 88, 34))
         self.resumeButton.setObjectName("resumeButton")
         self.volumeBox = QtWidgets.QSpinBox(self.centralwidget)
         self.volumeBox.setGeometry(QtCore.QRect(70, 120, 52, 21))
+        self.volumeBox.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.volumeBox.setAlignment(QtCore.Qt.AlignCenter)
         self.volumeBox.setMaximum(100)
         self.volumeBox.setObjectName("volumeBox")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 120, 58, 18))
-        self.label.setObjectName("label")
+        self.volumeLabel = QtWidgets.QLabel(self.centralwidget)
+        self.volumeLabel.setGeometry(QtCore.QRect(20, 120, 58, 18))
+        self.volumeLabel.setObjectName("volumeLabel")
         self.repeatBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.repeatBox.setGeometry(QtCore.QRect(230, 121, 21, 21))
+        self.repeatBox.setGeometry(QtCore.QRect(230, 120, 21, 21))
+        self.repeatBox.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.repeatBox.setText("")
         self.repeatBox.setIconSize(QtCore.QSize(16, 16))
         self.repeatBox.setTristate(False)
         self.repeatBox.setObjectName("repeatBox")
-        self.label2 = QtWidgets.QLabel(self.centralwidget)
-        self.label2.setGeometry(QtCore.QRect(180, 120, 58, 18))
-        self.label2.setObjectName("label2")
-        self.label3 = QtWidgets.QLabel(self.centralwidget)
-        self.label3.setGeometry(QtCore.QRect(320, 120, 30, 18))
-        self.label3.setObjectName("label3")
+        self.repeatLabel = QtWidgets.QLabel(self.centralwidget)
+        self.repeatLabel.setGeometry(QtCore.QRect(180, 120, 58, 18))
+        self.repeatLabel.setObjectName("repeatLabel")
+        self.fadeLabel = QtWidgets.QLabel(self.centralwidget)
+        self.fadeLabel.setGeometry(QtCore.QRect(320, 120, 30, 18))
+        self.fadeLabel.setObjectName("fadeLabel")
         self.fadeBox = QtWidgets.QCheckBox(self.centralwidget)
         self.fadeBox.setGeometry(QtCore.QRect(360, 120, 20, 21))
+        self.fadeBox.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.fadeBox.setText("")
         self.fadeBox.setObjectName("fadeBox")
         self.selectButton = QtWidgets.QToolButton(self.centralwidget)
-        self.selectButton.setGeometry(QtCore.QRect(370, 60, 21, 21))
+        self.selectButton.setGeometry(QtCore.QRect(360, 70, 31, 21))
         self.selectButton.setObjectName("selectButton")
+        self.trackName = QtWidgets.QLabel(self.centralwidget)
+        self.trackName.setGeometry(QtCore.QRect(20, 20, 360, 18))
+        font = QtGui.QFont()
+        font.setFamily("Noto Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(75)
+        font.setKerning(True)
+        self.trackName.setFont(font)
+        self.trackName.setAutoFillBackground(False)
+        self.trackName.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.trackName.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.trackName.setText("")
+        self.trackName.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.trackName.setWordWrap(False)
+        self.trackName.setObjectName("trackName")
+        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(10, 70, 340, 21))
+        self.progressBar.setProperty("value", 24)
+        self.progressBar.setFormat("")
+        self.progressBar.setObjectName("progressBar")
         self.resumeButton.raise_()
         self.pauseButton.raise_()
         self.stopButton.raise_()
-        self.timeSlider.raise_()
         self.volumeBox.raise_()
-        self.label.raise_()
+        self.volumeLabel.raise_()
         self.repeatBox.raise_()
-        self.label2.raise_()
-        self.label3.raise_()
+        self.repeatLabel.raise_()
+        self.fadeLabel.raise_()
         self.fadeBox.raise_()
         self.selectButton.raise_()
+        self.trackName.raise_()
+        self.progressBar.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -84,6 +128,8 @@ class Ui_MainWindow(Functions, object):
         self.resumeButton.clicked.connect(self.resume)
         self.stopButton.clicked.connect(self.stop)
         self.volumeBox.valueChanged.connect(self.change_volume)
+        self.repeatBox.stateChanged.connect(self.repeat)
+        self.fadeBox.stateChanged.connect(self.fade)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -91,12 +137,12 @@ class Ui_MainWindow(Functions, object):
         self.pauseButton.setText(_translate("MainWindow", "Pause"))
         self.stopButton.setText(_translate("MainWindow", "Stop"))
         self.resumeButton.setText(_translate("MainWindow", "Resume"))
-        self.label.setText(_translate("MainWindow", "Volume"))
-        self.label2.setText(_translate("MainWindow", "Repeat"))
-        self.label3.setText(_translate("MainWindow", "Fade"))
+        self.volumeLabel.setText(_translate("MainWindow", "Volume"))
+        self.repeatLabel.setText(_translate("MainWindow", "Repeat"))
+        self.fadeLabel.setText(_translate("MainWindow", "Fade"))
         self.selectButton.setText(_translate("MainWindow", "..."))
-        
-        #disable elements before debut run
+
+        #disable elements before debut play
         self.toggle_elements(False)
 
 
