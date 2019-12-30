@@ -19,7 +19,7 @@ class Ui_MainWindow(Functions,object):
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.resize(403, 248)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../.designer/backup/disc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/home/tharupahan/dev/py_projects/StarTunes/starLogo.jpeg"))
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("QLabel, QPushButton, QCheckBox, QToolButton, QSpinBox{\n"
 "    color:  cyan;\n"
