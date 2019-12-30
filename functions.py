@@ -89,11 +89,15 @@ class Functions:
     
     def display_track_info(self, track):
 
-        #get track name
-        
+        #split using '/'
+        splitted_dir = track.split('/')
+        #select last item
+        track_with_type = splitted_dir[-1]
+        #remove file extension
+        track_without_type = track_with_type.split('.')[0]
 
         #display track name
-        track_name = f"#{track}"
+        track_name = f"#{track_without_type}"
         self.trackName.setText(track_name)
 
 
